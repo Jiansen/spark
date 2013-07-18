@@ -9,6 +9,11 @@ There will be two phases of evolution
 - TAkka actor with typed Spark APIs
 
 
+We follow the Spark [Contributing Guidance](https://github.com/mesos/spark/wiki/Contributing-to-Spark) to validate the TAkka port.
+
+
+
+
 
 
 # Spark
