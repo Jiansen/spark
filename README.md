@@ -1,3 +1,16 @@
+# # TAkka-Spark
+
+This project is forked from the [original Spark repository](https://github.com/mesos/spark) on 15 June 2013
+
+In this project, Akka actors will be replaced by TAkka actors.
+
+There will be two phases of evolution
+- TAkka actor with untyped Spark APIs
+- TAkka actor with typed Spark APIs
+
+
+
+
 # Spark
 
 Lightning-Fast Cluster Computing - <http://www.spark-project.org/>
