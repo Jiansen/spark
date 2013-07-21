@@ -1,0 +1,171 @@
+core/src/test/scala/spark/MapOutputTrackerSuite.scala:import akka.actor._
+core/src/test/scala/spark/MapOutputTrackerSuite.scala:        "akka://spark@localhost:" + boundPort + "/user/MapOutputTracker")
+core/src/test/scala/spark/DistributedSuite.scala:    val akkaFrameSize =
+core/src/test/scala/spark/DistributedSuite.scala:      sc.env.actorSystem.settings.config.getBytes("akka.remote.netty.message-frame-size").toInt
+core/src/test/scala/spark/DistributedSuite.scala:    val rdd = sc.parallelize(Seq(1)).map{x => new Array[Byte](akkaFrameSize)}
+core/src/test/scala/spark/storage/BlockManagerSuite.scala:import akka.actor._
+core/src/hadoop2-yarn/scala/spark/deploy/yarn/YarnAllocationHandler.scala:          val driverUrl = "akka://spark@%s:%s/user/%s".format(
+core/src/hadoop2-yarn/scala/spark/deploy/yarn/ApplicationMaster.scala:    // Compute number of threads for akka
+core/src/main/scala/spark/network/ConnectionManager.scala:import akka.dispatch.{Await, Promise, ExecutionContext, Future}
+core/src/main/scala/spark/network/ConnectionManager.scala:import akka.util.Duration
+core/src/main/scala/spark/network/ConnectionManager.scala:import akka.util.duration._
+core/src/main/scala/spark/network/ConnectionManagerTest.scala:import akka.dispatch.Await
+core/src/main/scala/spark/network/ConnectionManagerTest.scala:import akka.util.duration._
+core/src/main/scala/spark/scheduler/mesos/CoarseMesosSchedulerBackend.scala:    val driverUrl = "akka://spark@%s:%s/user/%s".format(
+core/src/main/scala/spark/scheduler/cluster/SparkDeploySchedulerBackend.scala:    val driverUrl = "akka://spark@%s:%s/user/%s".format(
+core/src/main/scala/spark/scheduler/cluster/StandaloneSchedulerBackend.scala:import akka.actor._
+core/src/main/scala/spark/scheduler/cluster/StandaloneSchedulerBackend.scala:import akka.util.duration._
+core/src/main/scala/spark/scheduler/cluster/StandaloneSchedulerBackend.scala:import akka.pattern.ask
+core/src/main/scala/spark/scheduler/cluster/StandaloneSchedulerBackend.scala:import akka.util.Duration
+core/src/main/scala/spark/scheduler/cluster/StandaloneSchedulerBackend.scala:import akka.dispatch.Await
+core/src/main/scala/spark/scheduler/cluster/StandaloneSchedulerBackend.scala:import akka.remote.{RemoteClientShutdown, RemoteClientDisconnected, RemoteClientLifeCycleEvent}
+core/src/main/scala/spark/scheduler/cluster/StandaloneSchedulerBackend.scala:  private val timeout = Duration.create(System.getProperty("spark.akka.askTimeout", "10").toLong, "seconds")
+core/src/main/scala/spark/scheduler/local/LocalScheduler.scala:import akka.actor._
+core/src/main/scala/spark/SparkEnv.scala:import akka.actor.{Actor, ActorRef, Props, ActorSystemImpl, ActorSystem}
+core/src/main/scala/spark/SparkEnv.scala:import akka.remote.RemoteActorRefProvider
+core/src/main/scala/spark/SparkEnv.scala:        val url = "akka://spark@%s:%s/user/%s".format(driverHost, driverPort, name)
+core/src/main/scala/spark/executor/Executor.scala:  private val akkaFrameSize = env.actorSystem.settings.config.getBytes("akka.remote.netty.message-frame-size")
+core/src/main/scala/spark/executor/Executor.scala:        if (serializedResult.limit >= (akkaFrameSize - 1024)) {
+core/src/main/scala/spark/executor/StandaloneExecutorBackend.scala:import akka.actor.{ActorRef, Actor, Props, Terminated}
+core/src/main/scala/spark/executor/StandaloneExecutorBackend.scala:import akka.remote.{RemoteClientLifeCycleEvent, RemoteClientShutdown, RemoteClientDisconnected}
+core/src/main/scala/spark/storage/BlockManagerMasterActor.scala:import akka.actor.{Actor, ActorRef, Cancellable}
+core/src/main/scala/spark/storage/BlockManagerMasterActor.scala:import akka.dispatch.Future
+core/src/main/scala/spark/storage/BlockManagerMasterActor.scala:import akka.pattern.ask
+core/src/main/scala/spark/storage/BlockManagerMasterActor.scala:import akka.util.Duration
+core/src/main/scala/spark/storage/BlockManagerMasterActor.scala:import akka.util.duration._
+core/src/main/scala/spark/storage/BlockManagerMasterActor.scala:  val akkaTimeout = Duration.create(
+core/src/main/scala/spark/storage/BlockManagerMasterActor.scala:    System.getProperty("spark.akka.askTimeout", "10").toLong, "seconds")
+core/src/main/scala/spark/storage/BlockManagerMasterActor.scala:      bm.slaveActor.ask(removeMsg)(akkaTimeout).mapTo[Int]
+core/src/main/scala/spark/storage/ThreadingTest.scala:import akka.actor._
+core/src/main/scala/spark/storage/BlockManagerMaster.scala:import akka.actor.ActorRef
+core/src/main/scala/spark/storage/BlockManagerMaster.scala:import akka.dispatch.{Await, Future}
+core/src/main/scala/spark/storage/BlockManagerMaster.scala:import akka.pattern.ask
+core/src/main/scala/spark/storage/BlockManagerMaster.scala:import akka.util.Duration
+core/src/main/scala/spark/storage/BlockManagerMaster.scala:  val AKKA_RETRY_ATTEMPTS: Int = System.getProperty("spark.akka.num.retries", "3").toInt
+core/src/main/scala/spark/storage/BlockManagerMaster.scala:  val AKKA_RETRY_INTERVAL_MS: Int = System.getProperty("spark.akka.retry.wait", "3000").toInt
+core/src/main/scala/spark/storage/BlockManagerMaster.scala:  val timeout = Duration.create(System.getProperty("spark.akka.askTimeout", "10").toLong, "seconds")
+core/src/main/scala/spark/storage/BlockManagerMessages.scala:import akka.actor.ActorRef
+core/src/main/scala/spark/storage/BlockManagerSlaveActor.scala:import akka.actor.Actor
+core/src/main/scala/spark/storage/BlockManager.scala:import akka.actor.{ActorSystem, Cancellable, Props}
+core/src/main/scala/spark/storage/BlockManager.scala:import akka.dispatch.{Await, Future}
+core/src/main/scala/spark/storage/BlockManager.scala:import akka.util.Duration
+core/src/main/scala/spark/storage/BlockManager.scala:import akka.util.duration._
+core/src/main/scala/spark/MapOutputTracker.scala:import akka.actor._
+core/src/main/scala/spark/MapOutputTracker.scala:import akka.dispatch._
+core/src/main/scala/spark/MapOutputTracker.scala:import akka.pattern.ask
+core/src/main/scala/spark/MapOutputTracker.scala:import akka.remote._
+core/src/main/scala/spark/MapOutputTracker.scala:import akka.util.Duration
+core/src/main/scala/spark/MapOutputTracker.scala:  private val timeout = Duration.create(System.getProperty("spark.akka.askTimeout", "10").toLong, "seconds")
+core/src/main/scala/spark/deploy/LocalSparkCluster.scala:import akka.actor.{ActorRef, Props, Actor, ActorSystem, Terminated}
+core/src/main/scala/spark/deploy/worker/ExecutorRunner.scala:import akka.actor.ActorRef
+core/src/main/scala/spark/deploy/worker/Worker.scala:import akka.actor.{ActorRef, Props, Actor, ActorSystem, Terminated}
+core/src/main/scala/spark/deploy/worker/Worker.scala:import akka.util.duration._
+core/src/main/scala/spark/deploy/worker/Worker.scala:import akka.remote.{RemoteClientLifeCycleEvent, RemoteClientShutdown, RemoteClientDisconnected}
+core/src/main/scala/spark/deploy/worker/ui/WorkerWebUI.scala:import akka.actor.ActorRef
+core/src/main/scala/spark/deploy/worker/ui/WorkerWebUI.scala:import akka.util.{Duration, Timeout}
+core/src/main/scala/spark/deploy/worker/ui/WorkerWebUI.scala:    Duration.create(System.getProperty("spark.akka.askTimeout", "10").toLong, "seconds"))
+core/src/main/scala/spark/deploy/worker/ui/IndexPage.scala:import akka.dispatch.Await
+core/src/main/scala/spark/deploy/worker/ui/IndexPage.scala:import akka.pattern.ask
+core/src/main/scala/spark/deploy/worker/ui/IndexPage.scala:import akka.util.duration._
+core/src/main/scala/spark/deploy/client/Client.scala:import akka.actor._
+core/src/main/scala/spark/deploy/client/Client.scala:import akka.pattern.ask
+core/src/main/scala/spark/deploy/client/Client.scala:import akka.util.Duration
+core/src/main/scala/spark/deploy/client/Client.scala:import akka.util.duration._
+core/src/main/scala/spark/deploy/client/Client.scala:import akka.pattern.AskTimeoutException
+core/src/main/scala/spark/deploy/client/Client.scala:import akka.remote.RemoteClientLifeCycleEvent
+core/src/main/scala/spark/deploy/client/Client.scala:import akka.remote.RemoteClientShutdown
+core/src/main/scala/spark/deploy/client/Client.scala:import akka.remote.RemoteClientDisconnected
+core/src/main/scala/spark/deploy/client/Client.scala:import akka.actor.Terminated
+core/src/main/scala/spark/deploy/client/Client.scala:import akka.dispatch.Await
+core/src/main/scala/spark/deploy/client/Client.scala:        val timeout = Duration.create(System.getProperty("spark.akka.askTimeout", "10").toLong, "seconds")
+core/src/main/scala/spark/deploy/master/WorkerInfo.scala:import akka.actor.ActorRef
+core/src/main/scala/spark/deploy/master/Master.scala:import akka.actor._
+core/src/main/scala/spark/deploy/master/Master.scala:import akka.actor.Terminated
+core/src/main/scala/spark/deploy/master/Master.scala:import akka.remote.{RemoteClientLifeCycleEvent, RemoteClientDisconnected, RemoteClientShutdown}
+core/src/main/scala/spark/deploy/master/Master.scala:import akka.util.duration._
+core/src/main/scala/spark/deploy/master/Master.scala:  /** Returns an `akka://...` URL for the Master actor given a sparkUrl `spark://host:ip`. */
+core/src/main/scala/spark/deploy/master/Master.scala:        "akka://%s@%s:%s/user/%s".format(systemName, host, port, actorName)
+core/src/main/scala/spark/deploy/master/ApplicationInfo.scala:import akka.actor.ActorRef
+core/src/main/scala/spark/deploy/master/ui/ApplicationPage.scala:import akka.dispatch.Await
+core/src/main/scala/spark/deploy/master/ui/ApplicationPage.scala:import akka.pattern.ask
+core/src/main/scala/spark/deploy/master/ui/ApplicationPage.scala:import akka.util.duration._
+core/src/main/scala/spark/deploy/master/ui/MasterWebUI.scala:import akka.actor.ActorRef
+core/src/main/scala/spark/deploy/master/ui/MasterWebUI.scala:import akka.util.Duration
+core/src/main/scala/spark/deploy/master/ui/MasterWebUI.scala:    System.getProperty("spark.akka.askTimeout", "10").toLong, "seconds")
+core/src/main/scala/spark/deploy/master/ui/IndexPage.scala:import akka.dispatch.Await
+core/src/main/scala/spark/deploy/master/ui/IndexPage.scala:import akka.pattern.ask
+core/src/main/scala/spark/deploy/master/ui/IndexPage.scala:import akka.util.duration._
+core/src/main/scala/spark/util/AkkaUtils.scala:import akka.actor.{ActorSystem, ExtendedActorSystem}
+core/src/main/scala/spark/util/AkkaUtils.scala:import akka.util.duration._
+core/src/main/scala/spark/util/AkkaUtils.scala:import akka.remote.RemoteActorRefProvider
+core/src/main/scala/spark/util/AkkaUtils.scala:    val akkaThreads = System.getProperty("spark.akka.threads", "4").toInt
+core/src/main/scala/spark/util/AkkaUtils.scala:    val akkaBatchSize = System.getProperty("spark.akka.batchSize", "15").toInt
+core/src/main/scala/spark/util/AkkaUtils.scala:    val akkaTimeout = System.getProperty("spark.akka.timeout", "60").toInt
+core/src/main/scala/spark/util/AkkaUtils.scala:    val akkaFrameSize = System.getProperty("spark.akka.frameSize", "10").toInt
+core/src/main/scala/spark/util/AkkaUtils.scala:    val lifecycleEvents = if (System.getProperty("spark.akka.logLifecycleEvents", "false").toBoolean) "on" else "off"
+core/src/main/scala/spark/util/AkkaUtils.scala:    // 10 seconds is the default akka timeout, but in a cluster, we need higher by default.
+core/src/main/scala/spark/util/AkkaUtils.scala:    val akkaWriteTimeout = System.getProperty("spark.akka.writeTimeout", "30").toInt
+core/src/main/scala/spark/util/AkkaUtils.scala:    val akkaConf = ConfigFactory.parseString("""
+core/src/main/scala/spark/util/AkkaUtils.scala:      akka.daemonic = on
+core/src/main/scala/spark/util/AkkaUtils.scala:      akka.event-handlers = ["akka.event.slf4j.Slf4jEventHandler"]
+core/src/main/scala/spark/util/AkkaUtils.scala:      akka.stdout-loglevel = "ERROR"
+core/src/main/scala/spark/util/AkkaUtils.scala:      akka.actor.provider = "akka.remote.RemoteActorRefProvider"
+core/src/main/scala/spark/util/AkkaUtils.scala:      akka.remote.transport = "akka.remote.netty.NettyRemoteTransport"
+core/src/main/scala/spark/util/AkkaUtils.scala:      akka.remote.netty.hostname = "%s"
+core/src/main/scala/spark/util/AkkaUtils.scala:      akka.remote.netty.port = %d
+core/src/main/scala/spark/util/AkkaUtils.scala:      akka.remote.netty.connection-timeout = %ds
+core/src/main/scala/spark/util/AkkaUtils.scala:      akka.remote.netty.message-frame-size = %d MiB
+core/src/main/scala/spark/util/AkkaUtils.scala:      akka.remote.netty.execution-pool-size = %d
+core/src/main/scala/spark/util/AkkaUtils.scala:      akka.actor.default-dispatcher.throughput = %d
+core/src/main/scala/spark/util/AkkaUtils.scala:      akka.remote.log-remote-lifecycle-events = %s
+core/src/main/scala/spark/util/AkkaUtils.scala:      akka.remote.netty.write-timeout = %ds
+core/src/main/scala/spark/util/AkkaUtils.scala:      """.format(host, port, akkaTimeout, akkaFrameSize, akkaThreads, akkaBatchSize,
+core/src/main/scala/spark/util/AkkaUtils.scala:        lifecycleEvents, akkaWriteTimeout))
+core/src/main/scala/spark/util/AkkaUtils.scala:    val actorSystem = ActorSystem(name, akkaConf)
+core/src/main/scala/spark/SparkContext.scala:import akka.actor.Actor._
+core/src/main/scala/spark/ui/jobs/JobProgressUI.scala:import akka.util.Duration
+core/src/main/scala/spark/ui/storage/BlockManagerUI.scala:import akka.util.Duration
+core/src/main/scala/spark/ui/storage/BlockManagerUI.scala:    System.getProperty("spark.akka.askTimeout", "10").toLong, "seconds")
+examples/src/main/scala/spark/streaming/examples/ZeroMQWordCount.scala:import akka.actor.ActorSystem
+examples/src/main/scala/spark/streaming/examples/ZeroMQWordCount.scala:import akka.actor.actorRef2Scala
+examples/src/main/scala/spark/streaming/examples/ZeroMQWordCount.scala:import akka.zeromq._
+examples/src/main/scala/spark/streaming/examples/ZeroMQWordCount.scala:import akka.zeromq.Subscribe
+examples/src/main/scala/spark/streaming/examples/ActorWordCount.scala:import akka.actor.Actor
+examples/src/main/scala/spark/streaming/examples/ActorWordCount.scala:import akka.actor.ActorRef
+examples/src/main/scala/spark/streaming/examples/ActorWordCount.scala:import akka.actor.Props
+examples/src/main/scala/spark/streaming/examples/ActorWordCount.scala:import akka.actor.actorRef2Scala
+examples/src/main/scala/spark/streaming/examples/ActorWordCount.scala:      Props(new SampleActorReceiver[String]("akka://test@%s:%s/user/FeederActor".format(
+project/SparkBuild.scala:    resolvers ++= Seq("Akka Repository" at "http://repo.akka.io/releases/"),
+project/SparkBuild.scala:      "com.typesafe.akka" % "akka-actor" % "2.0.5" excludeAll(excludeNetty),
+project/SparkBuild.scala:      "com.typesafe.akka" % "akka-remote" % "2.0.5" excludeAll(excludeNetty),
+project/SparkBuild.scala:      "com.typesafe.akka" % "akka-slf4j" % "2.0.5" excludeAll(excludeNetty),
+project/SparkBuild.scala:      "Akka Repository" at "http://repo.akka.io/releases/"
+project/SparkBuild.scala:      "com.typesafe.akka" % "akka-zeromq" % "2.0.5" excludeAll(excludeNetty)
+streaming/src/test/scala/spark/streaming/InputStreamsSuite.scala:import akka.actor.Actor
+streaming/src/test/scala/spark/streaming/InputStreamsSuite.scala:import akka.actor.IO
+streaming/src/test/scala/spark/streaming/InputStreamsSuite.scala:import akka.actor.IOManager
+streaming/src/test/scala/spark/streaming/InputStreamsSuite.scala:import akka.actor.Props
+streaming/src/test/scala/spark/streaming/InputStreamsSuite.scala:import akka.util.ByteString
+streaming/src/main/scala/spark/streaming/receivers/ActorReceiver.scala:import akka.actor.{ Actor, PoisonPill, Props, SupervisorStrategy }
+streaming/src/main/scala/spark/streaming/receivers/ActorReceiver.scala:import akka.actor.{ actorRef2Scala, ActorRef }
+streaming/src/main/scala/spark/streaming/receivers/ActorReceiver.scala:import akka.actor.{ PossiblyHarmful, OneForOneStrategy }
+streaming/src/main/scala/spark/streaming/receivers/ActorReceiver.scala:  import akka.util.duration._
+streaming/src/main/scala/spark/streaming/receivers/ActorReceiver.scala:  import akka.actor.SupervisorStrategy._
+streaming/src/main/scala/spark/streaming/receivers/ActorReceiver.scala: * 	[http://doc.akka.io/docs/akka/2.0.5/scala/fault-tolerance.html fault-tolerance].
+streaming/src/main/scala/spark/streaming/receivers/ZeroMQReceiver.scala:import akka.actor.Actor
+streaming/src/main/scala/spark/streaming/receivers/ZeroMQReceiver.scala:import akka.zeromq._
+streaming/src/main/scala/spark/streaming/dstream/NetworkInputDStream.scala:import akka.actor.{Props, Actor}
+streaming/src/main/scala/spark/streaming/dstream/NetworkInputDStream.scala:import akka.pattern.ask
+streaming/src/main/scala/spark/streaming/dstream/NetworkInputDStream.scala:import akka.dispatch.Await
+streaming/src/main/scala/spark/streaming/dstream/NetworkInputDStream.scala:import akka.util.duration._
+streaming/src/main/scala/spark/streaming/dstream/NetworkInputDStream.scala:    val url = "akka://spark@%s:%s/user/NetworkInputTracker".format(ip, port)
+streaming/src/main/scala/spark/streaming/NetworkInputTracker.scala:import akka.actor._
+streaming/src/main/scala/spark/streaming/NetworkInputTracker.scala:import akka.pattern.ask
+streaming/src/main/scala/spark/streaming/NetworkInputTracker.scala:import akka.util.duration._
+streaming/src/main/scala/spark/streaming/NetworkInputTracker.scala:import akka.dispatch._
+streaming/src/main/scala/spark/streaming/StreamingContext.scala:import akka.actor.Props
+streaming/src/main/scala/spark/streaming/StreamingContext.scala:import akka.actor.SupervisorStrategy
+streaming/src/main/scala/spark/streaming/StreamingContext.scala:import akka.zeromq.Subscribe
+streaming/src/main/scala/spark/streaming/api/java/JavaStreamingContext.scala:import akka.actor.Props
+streaming/src/main/scala/spark/streaming/api/java/JavaStreamingContext.scala:import akka.actor.SupervisorStrategy
+streaming/src/main/scala/spark/streaming/api/java/JavaStreamingContext.scala:import akka.zeromq.Subscribe

@@ -13,7 +13,19 @@ We follow the Spark [Contributing Guidance](https://github.com/mesos/spark/wiki/
 
 
 
+# benchmark
 
+SparkLR
+  val N = 10000  // Number of data points
+  val D = 10   // Numer of dimensions
+  val R = 0.7  // Scaling factor
+  val ITERATIONS = 30
+  val rand = new Random(42)
+
+./run spark.examples.SparkLR local[4]
+
+Akka-spark: 0.025459711s 0.030539653s  0.028226436s  0.02728094s 0.026677869s
+TAkka-spark: 
 
 
 # Spark
